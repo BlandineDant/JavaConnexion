@@ -50,21 +50,20 @@ public class InscriptionController {
 
     private DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
+    ConnexionController connexion = new ConnexionController();
 	 
 	 @FXML
 	    private void initialize() {
+		 
+		 
 		 choiceRole.getItems().add("Admin");
 		 choiceRole.getItems().add("User");
 		 
-		 /*File file1 = new File("src/main/resources/images/inscription.png");
-		  
-    	 Image image1 = new Image(file1.toURI().toString(), 77, 77, false, false);
-    	 imageviewDessin.setFitHeight(77);
-    	 imageviewDessin.setFitWidth(77);
-    	 imageviewDessin.setImage(image1);*/
+		 
 		 
 	    }
 	 
+	 	
 	 @FXML
 	    private void photo() throws IOException, ParseException {
 		  String url = textfieldPhoto.getText();
@@ -77,7 +76,7 @@ public class InscriptionController {
 	        
 	        }
 		 catch (Exception e){
-			 showAlertWithoutHeaderPhoto();
+			 showAlert("Erreur de saisie","Une erreur s'est produite lors de l'ajout de la photo, le lien n'est pas valide.");
 		 }
 		 	
 		 	
@@ -120,85 +119,33 @@ public class InscriptionController {
 					        showConfirm();
 					        }
 						 catch (Exception e){
-							 showAlertWithoutHeaderPhoto();
+							 showAlert("Erreur de saisie","Une erreur s'est produite lors de l'ajout de la photo, le lien n'est pas valide.");
 						 }
 					}
 					else {
-						showAlertWithoutHeaderChampsMail(); 
+						showAlert("Erreur de saisie","Email invalide.");
 					}
 					
 					
 				 }
 				 else {
-					 showAlertWithoutHeaderChampsTel(); 
+					 showAlert("Erreur de saisie","Numéro de téléphone invalide.");
 				 }
 				 
 			 }
 			 else {
 				 
-				 showAlertWithoutHeaderChampsVide(); 
+				 showAlert("Erreur de saisie","Tous les champs doivent être remplis.");
 			 }	 
 		 }
 		 catch (Exception e){
-			 showAlertWithoutHeaderErreurChamps();
+			 showAlert("Erreur de saisie","Erreur lors de la saisie. Vérifiez que tous les champs sont remplis correctement.");
 			 } 
 				
 	    }
 	 
-	 private void showAlertWithoutHeaderPhoto() {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Lien invalide");
-
-			// Header Text: null
-			alert.setHeaderText(null);
-			alert.setContentText("Une erreur s'est produite lors de l'ajout de la photo, le lien n'est pas valide.");
-
-			alert.showAndWait();
-		}
-		
-	 private void showAlertWithoutHeaderChampsVide() {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Erreur de saisie");
-
-			// Header Text: null
-			alert.setHeaderText(null);
-			alert.setContentText("Tous les champs doivent être remplis.");
-
-			alert.showAndWait();
-		}
-	 private void showAlertWithoutHeaderChampsTel() {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Erreur de saisie");
-
-			// Header Text: null
-			alert.setHeaderText(null);
-			alert.setContentText("Numéro de téléphone invalide.");
-
-			alert.showAndWait();
-		}
-	 
-	 private void showAlertWithoutHeaderChampsMail() {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Erreur de saisie");
-
-			// Header Text: null
-			alert.setHeaderText(null);
-			alert.setContentText("Email invalide.");
-
-			alert.showAndWait();
-		}
-		
-	 private void showAlertWithoutHeaderErreurChamps() {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Erreur de saisie");
-
-			// Header Text: null
-			alert.setHeaderText(null);
-			alert.setContentText("Erreur lors de la saisie. Vérifiez que tous les champs sont remplis correctement.");
-
-			alert.showAndWait();
-		}
-	 
+	
+	 	 
 	 private void showConfirm() throws ParseException, IOException {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setTitle("Valider l'inscription");
@@ -242,7 +189,7 @@ public class InscriptionController {
 			 
 				 String login= prenom+"."+nom;				 
 				 String connect="";
-				 String mdp = GeneratingRandomAlphanumericString();
+				 String mdp = connexion.GeneratingRandomAlphanumericString();
 				 
 					for (int i = 0; i < JsonController.personnes.size(); i++) {
 					      if (login.equals(JsonController.personnes.get(i).getLogin())) {
@@ -252,7 +199,7 @@ public class InscriptionController {
 					    }
 
 					if (connect=="exist") {
-						showAlreadyExist();
+						showAlert("Déjà inscrit","Vous êtes déjà inscrit.");
 					}
 					else {
 				        Personne user = new Personne(role,nom,prenom,date,adresse,email,telephone,photo,login,mdp);
@@ -265,31 +212,8 @@ public class InscriptionController {
 			}
 		}
 	 
-	 public String GeneratingRandomAlphanumericString() {
-		    int leftLimit = 48; // numeral '0'
-		    int rightLimit = 122; // letter 'z'
-		    int targetStringLength = 10;
-		    Random random = new Random();
-
-		    String generatedString = random.ints(leftLimit, rightLimit + 1)
-		      .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
-		      .limit(targetStringLength)
-		      .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
-		      .toString();
-
-		    return generatedString;
-		}
-	 
-	 private void showAlreadyExist() {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Déjà inscrit");
-
-			// Header Text: null
-			alert.setHeaderText(null);
-			alert.setContentText("Vous êtes déjà inscrit.");
-
-			alert.showAndWait();
-		}
+	
+	
 	 
 	 private void showAlertWithoutHeaderTextNewMDP(String newmdp) {
 			Alert alert = new Alert(AlertType.INFORMATION);
@@ -309,6 +233,17 @@ public class InscriptionController {
 			// Header Text: null
 			alert.setHeaderText(null);
 			alert.setContentText("Votre inscription est confirmé.");
+
+			alert.showAndWait();
+		}
+	 
+	 private void showAlert(String titre, String message) {
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle(titre);
+
+			// Header Text: null
+			alert.setHeaderText(null);
+			alert.setContentText(message);
 
 			alert.showAndWait();
 		}
