@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="643.0" style="-fx-background-color: #9EADC8;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.javafx_archetype_simple.UserController">
+   <children>
+      <Button fx:id="deconnexionButton" layoutX="270.0" layoutY="421.0" onAction="#switchToPrimary" style="-fx-background-color: #BDEDFF;" text="Se déconnecter">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="134.0" layoutY="125.0" text="Nom :" textAlignment="RIGHT">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="134.0" layoutY="177.0" text="Prénom :" textAlignment="RIGHT">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <ImageView id="ImageProfil" fx:id="imageviewPhoto" fitHeight="208.0" fitWidth="165.0" layoutX="450.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="134.0" layoutY="225.0" text="Date de naissance :" textAlignment="RIGHT">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="134.0" layoutY="277.0" text="Adresse :" textAlignment="RIGHT">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="134.0" layoutY="322.0" text="Email :" textAlignment="RIGHT">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="134.0" layoutY="369.0" text="Téléphone :" textAlignment="RIGHT">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label id="lblNom" fx:id="lblNom" layoutX="187.0" layoutY="125.0" text="XXX">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label id="lblTelephone" fx:id="lblTelephone" layoutX="219.0" layoutY="369.0" text="XXX">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label id="lblEmail" fx:id="lblEmail" layoutX="219.0" layoutY="322.0" text="XXX">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label id="lblAdresse" fx:id="lblAdresse" layoutX="216.0" layoutY="277.0" text="XXX">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label id="lblDate" fx:id="lblDate" layoutX="280.0" layoutY="225.0" text="XXX">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label id="lblPrenom" fx:id="lblPrenom" layoutX="205.0" layoutY="177.0" text="XXX">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="233.0" layoutY="14.0" text="Compte" textFill="#2e4880">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageviewDessin" fitHeight="77.0" fitWidth="77.0" layoutX="549.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="563.0" layoutY="14.0" text="User profile" textAlignment="CENTER" textFill="#9c160c">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="22.0" layoutY="-8.0" prefHeight="173.0" prefWidth="28.0" style="-fx-background-color: #ECD465;" />
+      <Label layoutX="36.0" prefHeight="189.0" prefWidth="28.0" style="-fx-background-color: #90EAB1;" />
+   </children>
+</Pane>

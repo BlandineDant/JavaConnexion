@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" prefHeight="497.0" prefWidth="480.0" spacing="20.0" style="-fx-background-color: #283747;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.javafx_archetype_simple.InscriptionController">
+   <children>
+      <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="130.0" scaleX="5.0" scaleY="2.0" style="-fx-background-color: #F5B041;" translateY="30.0" />
+      <Label scaleX="2.0" scaleY="2.0" text="Inscription" textFill="WHITE" translateY="-40.0">
+         <font>
+            <Font name="Arial Bold Italic" size="36.0" />
+         </font>
+         <VBox.margin>
+            <Insets bottom="5.0" />
+         </VBox.margin>
+      </Label>
+      <Button fx:id="retourButton" onAction="#switchToPrimary" text="Retour">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Button>
+   </children>
+   <padding>
+      <Insets left="20.0" right="20.0" top="40.0" />
+   </padding>
+</VBox>
