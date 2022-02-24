@@ -199,9 +199,9 @@ public class VerificationChamps {
 		if (role.isEmpty()==true || nom.isEmpty()==true ||prenom.isEmpty()==true || 
 				date.isEmpty()==true || photo.isEmpty()==true || adresse.isEmpty()==true || 
 				telephone.isEmpty()==true || email.isEmpty()==true) {
-			return 1;
-		} else {
 			return 0;
+		} else {
+			return 1;
 		}
 	}
 	
