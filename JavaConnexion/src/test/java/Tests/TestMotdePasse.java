@@ -7,6 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import java.io.IOException;
 
 import org.json.simple.parser.ParseException;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.jupiter.api.Test;
 import org.openjfx.javafx_archetype_simple.ConnexionController;
 import org.openjfx.javafx_archetype_simple.JsonController;
@@ -15,6 +19,29 @@ import org.openjfx.javafx_archetype_simple.MdpOublieController;
 public class TestMotdePasse {
 
 	String path = "src/test/resources/json/personne.json";
+    MdpOublieController oubliMDP = new MdpOublieController();
+
+    @BeforeClass
+    public static void firstSetUp() {
+        System.out.println("Début des tests de la classe MdpOublieController.");
+    }
+    
+    @Before
+    public void setUp() throws Exception {
+        this.oubliMDP = new MdpOublieController();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+    	System.out.println("Fin du test");
+        //this.connexion.shutdown();
+    }
+
+    @AfterClass
+    public static void finalTearDown() throws Exception {
+    	System.out.println("Fin des tests de la classe MdpOublieController.");
+        //this.connexion.shutdown();
+    }
 	
 	/**
 	 * Permet de tester un cas succés dans le traitement permettant de générer un nouveau mdp

@@ -38,9 +38,9 @@
          </font>
       </Label>
       <Label layoutX="20.0" layoutY="1.0" prefHeight="162.0" prefWidth="28.0" style="-fx-background-color: #ECD465;" />
-      <ImageView fx:id="imageviewDessin" fitHeight="77.0" fitWidth="77.0" layoutX="549.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="34.0" prefHeight="184.0" prefWidth="28.0" style="-fx-background-color: #90EAB1;" />
       <Label layoutX="598.0" layoutY="1.0" prefHeight="162.0" prefWidth="28.0" style="-fx-background-color: #ECD465;" />
       <Label layoutX="584.0" prefHeight="184.0" prefWidth="28.0" style="-fx-background-color: #90EAB1;" />
+      <ImageView fx:id="imageviewDessin" fitHeight="77.0" fitWidth="77.0" layoutX="491.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
