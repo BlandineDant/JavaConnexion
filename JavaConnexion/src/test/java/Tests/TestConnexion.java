@@ -39,7 +39,7 @@ class TestConnexion {
 	void testConnexionUserOk() throws ParseException, java.text.ParseException, IOException {
 		JsonController.ReadJSON(path);
 		ConnexionController connexion = new ConnexionController();
-		connexion.setId("maneth.seng");
+		connexion.setId("elias.jalal");
 		connexion.setMdp("azertyU");
 		assertEquals("USER",connexion.connexion());
 	}
