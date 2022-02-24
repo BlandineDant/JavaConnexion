@@ -105,7 +105,6 @@ public class InscriptionController {
 			 if (vide == 0) {
 				 
 				 int phone=verification.NumeroTelephone();
-				 
 				 if (phone==1) {
 					int mail= verification.EmailFormat();
 					
